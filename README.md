@@ -1,12 +1,45 @@
-# 💈 Barbearia Digital — Sistema de Gestão Fullstack
-
+💈 Barbearia Digital — Sistema de Gestão Fullstack
 Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, serviços, barbeiros e agendamentos.
 
----
+📋 Índice
 
-## 🗂️ Estrutura do Projeto
+Estrutura do Projeto
+Entidades e Relacionamentos
 
-```
+Cliente
+Serviço
+Barbeiro ⭐
+Agendamento
+
+
+API REST — Endpoints
+
+Clientes
+Serviços
+Barbeiros
+Agendamentos
+
+
+Como Rodar Localmente
+
+Pré-requisitos
+Backend
+Frontend
+
+
+Deploy — Guia Completo
+
+1. MongoDB Atlas
+2. Backend — Render
+3. Frontend — Vercel
+4. CORS em Produção
+
+
+PWA — Instalação
+Bugs Corrigidos do Projeto Original
+
+
+🗂️ Estrutura do Projeto
 barbearia/
 ├── backend/
 │   ├── controllers/
@@ -41,217 +74,122 @@ barbearia/
     ├── index.html
     ├── manifest.json
     └── service-worker.js
-```
 
----
+🗄️ Entidades e Relacionamentos
+Cliente
+CampoTipoObrigatórionomeString✅telefoneString✅emailString❌dataNascimentoDate❌observacoesString❌
+Serviço
+CampoTipoObrigatórionomeString✅descricaoString❌precoNumber✅duracaoMinutosNumber✅ativoBoolean❌ (default true)
+Barbeiro ⭐ (Nova entidade)
+CampoTipoObrigatórionomeString✅telefoneString❌emailString❌especialidades[String]❌horarioInicioString❌ (default 08:00)horarioFimString❌ (default 18:00)diasTrabalho[Number]❌ (default Seg–Sex)ativoBoolean❌ (default true)fotoString❌ (URL)
+Agendamento
+CampoTipoObrigatórioclienteObjectId → Cliente✅barbeiroObjectId → Barbeiro✅servicoObjectId → Servico✅dataHoraDate✅statusEnum❌ (default agendado)observacoesString❌
 
-## 🗄️ Entidades e Relacionamentos
+🔌 API REST — Endpoints
+Clientes: /api/clientes
+MétodoRotaDescriçãoGET/Listar todosGET/:idBuscar por IDPOST/Criar novoPUT/:idAtualizarDELETE/:idRemover
+Serviços: /api/servicos
+MétodoRotaDescriçãoGET/Listar (query: ?ativos=true)GET/:idBuscar por IDPOST/Criar novoPUT/:idAtualizarDELETE/:idRemover
+Barbeiros: /api/barbeiros
+MétodoRotaDescriçãoGET/Listar (query: ?ativos=true)GET/:idBuscar por IDPOST/Criar novoPUT/:idAtualizarDELETE/:idRemover
+Agendamentos: /api/agendamentos
+MétodoRotaDescriçãoGET/Listar (query: ?status=, ?barbeiro=, ?data=)GET/:idBuscar por ID (populado)POST/Criar novoPUT/:idAtualizarDELETE/:idRemover
 
-### Cliente
-| Campo          | Tipo   | Obrigatório |
-|----------------|--------|-------------|
-| nome           | String | ✅ |
-| telefone       | String | ✅ |
-| email          | String | ❌ |
-| dataNascimento | Date   | ❌ |
-| observacoes    | String | ❌ |
+🚀 Como Rodar Localmente
+Pré-requisitos
 
-### Serviço
-| Campo          | Tipo    | Obrigatório |
-|----------------|---------|-------------|
-| nome           | String  | ✅ |
-| descricao      | String  | ❌ |
-| preco          | Number  | ✅ |
-| duracaoMinutos | Number  | ✅ |
-| ativo          | Boolean | ❌ (default true) |
+Node.js 18+
+npm
+MongoDB local ou conta no MongoDB Atlas
 
-### Barbeiro ⭐ (Nova entidade)
-| Campo          | Tipo     | Obrigatório |
-|----------------|----------|-------------|
-| nome           | String   | ✅ |
-| telefone       | String   | ❌ |
-| email          | String   | ❌ |
-| especialidades | [String] | ❌ |
-| horarioInicio  | String   | ❌ (default 08:00) |
-| horarioFim     | String   | ❌ (default 18:00) |
-| diasTrabalho   | [Number] | ❌ (default Seg–Sex) |
-| ativo          | Boolean  | ❌ (default true) |
-| foto           | String   | ❌ (URL) |
-
-### Agendamento
-| Campo       | Tipo     | Obrigatório |
-|-------------|----------|-------------|
-| cliente     | ObjectId → Cliente  | ✅ |
-| barbeiro    | ObjectId → Barbeiro | ✅ |
-| servico     | ObjectId → Servico  | ✅ |
-| dataHora    | Date     | ✅ |
-| status      | Enum     | ❌ (default agendado) |
-| observacoes | String   | ❌ |
-
----
-
-## 🔌 API REST — Endpoints
-
-### Clientes: `/api/clientes`
-| Método | Rota           | Descrição             |
-|--------|----------------|-----------------------|
-| GET    | /              | Listar todos          |
-| GET    | /:id           | Buscar por ID         |
-| POST   | /              | Criar novo            |
-| PUT    | /:id           | Atualizar             |
-| DELETE | /:id           | Remover               |
-
-### Serviços: `/api/servicos`
-| Método | Rota           | Descrição                      |
-|--------|----------------|--------------------------------|
-| GET    | /              | Listar (query: `?ativos=true`) |
-| GET    | /:id           | Buscar por ID                  |
-| POST   | /              | Criar novo                     |
-| PUT    | /:id           | Atualizar                      |
-| DELETE | /:id           | Remover                        |
-
-### Barbeiros: `/api/barbeiros`
-| Método | Rota           | Descrição                      |
-|--------|----------------|--------------------------------|
-| GET    | /              | Listar (query: `?ativos=true`) |
-| GET    | /:id           | Buscar por ID                  |
-| POST   | /              | Criar novo                     |
-| PUT    | /:id           | Atualizar                      |
-| DELETE | /:id           | Remover                        |
-
-### Agendamentos: `/api/agendamentos`
-| Método | Rota           | Descrição                                              |
-|--------|----------------|--------------------------------------------------------|
-| GET    | /              | Listar (query: `?status=`, `?barbeiro=`, `?data=`)     |
-| GET    | /:id           | Buscar por ID (populado)                               |
-| POST   | /              | Criar novo                                             |
-| PUT    | /:id           | Atualizar                                              |
-| DELETE | /:id           | Remover                                                |
-
----
-
-## 🚀 Como Rodar Localmente
-
-### Pré-requisitos
-- Node.js 18+
-- npm
-- MongoDB local ou conta no MongoDB Atlas
-
-### Backend
-
-```bash
-cd backend
+Backend
+bashcd backend
 npm install
 cp .env.example .env
 # Edite .env com sua MONGO_URI
 npm run dev
 # Servidor em http://localhost:3000
-```
-
-### Frontend
-
-```bash
-# Opção 1: VS Code Live Server (extensão)
+Frontend
+bash# Opção 1: VS Code Live Server (extensão)
 # Opção 2: http-server
 cd frontend
 npx http-server . -p 8080
 # Acesse http://localhost:8080
-```
 
-> ⚠️ Altere a constante `API` em `frontend/js/app.js` para apontar para o backend hospedado em produção.
+⚠️ Altere a constante API em frontend/js/app.js para apontar para o backend hospedado em produção.
 
----
 
-## ☁️ Deploy — Guia Completo
+☁️ Deploy — Guia Completo
+A aplicação utiliza a seguinte arquitetura de deploy:
+CamadaServiçoURL de exemplo🗄️ BancoMongoDB Atlascluster0.xxxxx.mongodb.net⚙️ BackendRenderhttps://barbearia-backend.onrender.com🌐 FrontendVercelhttps://barbearia-digital.vercel.app
 
-### 1. Banco de Dados — MongoDB Atlas (gratuito)
+1. Banco de Dados — MongoDB Atlas (gratuito)
 
-1. Acesse [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas) e crie uma conta
-2. Crie um cluster gratuito (M0)
-3. Em **Database Access**, crie um usuário com senha
-4. Em **Network Access**, adicione `0.0.0.0/0` (acesso de qualquer IP)
-5. Em **Connect → Drivers**, copie a string de conexão:
-   ```
+Acesse mongodb.com/cloud/atlas e crie uma conta
+Crie um cluster gratuito (M0)
+Em Database Access, crie um usuário com senha
+Em Network Access, adicione 0.0.0.0/0 (acesso de qualquer IP)
+Em Connect → Drivers, copie a string de conexão:
+
    mongodb+srv://usuario:senha@cluster0.xxxxx.mongodb.net/barbearia?retryWrites=true&w=majority
-   ```
 
----
+2. Backend — Render (gratuito)
 
-### 2. Backend — Railway (recomendado, gratuito)
+Acesse render.com e crie uma conta
+Clique em New → Web Service
+Conecte o repositório GitHub e defina:
 
-1. Acesse [railway.app](https://railway.app) e crie uma conta
-2. Clique em **New Project → Deploy from GitHub Repo**
-3. Selecione o repositório e a pasta `backend/`
-4. Em **Variables**, adicione:
-   ```
+Root Directory: backend
+Build Command: npm install
+Start Command: node server.js
+
+
+Em Environment Variables, adicione:
+
    MONGO_URI = mongodb+srv://...
-   PORT = 3000
-   ```
-5. Clique em **Deploy** — Railway detecta o `package.json` automaticamente
-6. Copie a URL gerada (ex: `https://barbearia-backend.up.railway.app`)
+   PORT      = 3000
 
-**Alternativa — Render.com:**
-1. Crie conta em [render.com](https://render.com)
-2. **New Web Service → Connect GitHub**
-3. Root Directory: `backend`
-4. Build Command: `npm install`
-5. Start Command: `node server.js`
-6. Adicione as variáveis de ambiente
+Clique em Create Web Service
+Copie a URL gerada (ex: https://barbearia-backend.onrender.com)
 
----
 
-### 3. Frontend — Vercel (recomendado, gratuito)
+⚠️ No plano gratuito do Render, o serviço hiberna após 15 minutos de inatividade. A primeira requisição após o período de inatividade pode levar alguns segundos a mais para responder.
 
-1. Acesse [vercel.com](https://vercel.com) e crie uma conta
-2. **New Project → Import Git Repository**
-3. Selecione o repositório
-4. Em **Root Directory**, defina `frontend`
-5. Framework Preset: **Other** (HTML estático)
-6. Clique em **Deploy**
 
-**⚠️ Antes do deploy do frontend:**
-Edite `frontend/js/app.js` e troque a constante `API`:
-```js
-// Antes (local):
+3. Frontend — Vercel (gratuito)
+⚠️ Antes do deploy, edite frontend/js/app.js e aponte a constante API para a URL do backend no Render:
+js// Antes (local):
 const API = 'http://localhost:3000/api';
 
 // Depois (produção):
-const API = 'https://sua-url-backend.up.railway.app/api';
-```
+const API = 'https://barbearia-backend.onrender.com/api';
+Passos para o deploy:
 
-**Alternativa — Netlify:**
-1. Arraste a pasta `frontend/` para [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Site publicado instantaneamente
+Acesse vercel.com e crie uma conta
+Clique em New Project → Import Git Repository
+Selecione o repositório
+Em Root Directory, defina frontend
+Framework Preset: Other (HTML estático)
+Clique em Deploy
+A URL pública será gerada automaticamente (ex: https://barbearia-digital.vercel.app)
 
----
 
-### 4. CORS em Produção
-
-No `backend/server.js`, configure o CORS para aceitar o domínio do frontend:
-
-```js
-app.use(cors({
-  origin: ['https://seu-frontend.vercel.app', 'http://localhost:8080']
+4. CORS em Produção
+No backend/server.js, configure o CORS para aceitar apenas o domínio do frontend em produção:
+jsapp.use(cors({
+  origin: [
+    'https://barbearia-digital.vercel.app',
+    'http://localhost:8080'  // desenvolvimento local
+  ]
 }));
-```
 
----
-
-## 📱 PWA — Instalação
-
+📱 PWA — Instalação
 Após o deploy, acesse o frontend pelo navegador e:
-- **Desktop Chrome/Edge**: clique no ícone de instalação na barra de endereço
-- **Android**: menu do navegador → "Adicionar à tela inicial"
-- **iOS Safari**: botão compartilhar → "Adicionar à tela de início"
 
----
+Desktop Chrome/Edge: clique no ícone de instalação na barra de endereço
+Android: menu do navegador → "Adicionar à tela inicial"
+iOS Safari: botão compartilhar → "Adicionar à tela de início"
 
-## 🐛 Bugs Corrigidos do Projeto Original (pet)
 
-| Arquivo Original           | Bug                                           | Correção Aplicada |
-|----------------------------|-----------------------------------------------|-------------------|
-| `models/models/Pet.js`     | Caminho duplicado `models/models/`            | Estrutura corrigida |
-| `models/models/Pet.js`     | `type: age` (variável inexistente)            | Substituído por `type: Number` |
-| `routes/petRouts.js`       | Importava `diaryController` em vez de `petController` | Controller correto por entidade |
-| `server.js`                | `require('./routes/petRoutes')` após o `.listen()` | Todas as rotas registradas antes do listen |
-| Sem tratamento de erros    | Controllers sem try/catch                     | try/catch em todos os controllers |
+🐛 Bugs Corrigidos do Projeto Original (pet)
+Arquivo OriginalBugCorreção Aplicadamodels/models/Pet.jsCaminho duplicado models/models/Estrutura corrigidamodels/models/Pet.jstype: age (variável inexistente)Substituído por type: Numberroutes/petRouts.jsImportava diaryController em vez de petControllerController correto por entidadeserver.jsrequire('./routes/petRoutes') após o .listen()Todas as rotas registradas antes do listenSem tratamento de errosControllers sem try/catchtry/catch em todos os controllers
