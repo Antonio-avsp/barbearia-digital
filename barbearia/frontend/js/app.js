@@ -1,5 +1,5 @@
 // ── CONFIG ──────────────────────────────────────────
-const API = 'https://barbearia-digital-x4i4.onrender.com';
+const API = 'https://barbearia-digital-x4i4.onrender.com/api';
 
 // ── TOAST ────────────────────────────────────────────
 function toast(msg, tipo = 'ok') {
