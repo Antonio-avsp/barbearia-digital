@@ -12,7 +12,7 @@ Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, se
   - [🗄️ Entidades e Relacionamentos](#️-entidades-e-relacionamentos)
     - [Cliente](#cliente)
     - [Serviço](#serviço)
-    - [Barbeiro](#barbeiro)
+    - [Barbeiro](#-barbeiro)
     - [Agendamento](#agendamento)
   - [🔌 API REST — Endpoints](#-api-rest--endpoints)
     - [Clientes: `/api/clientes`](#clientes-apiclientes)
@@ -94,8 +94,8 @@ barbearia/
 | duracaoMinutos | Number  | ✅ |
 | ativo          | Boolean | ❌ (default true) |
 
-⭐
-### Barbeiro
+
+### ⭐ Barbeiro
 | Campo          | Tipo     | Obrigatório |
 |----------------|----------|-------------|
 | nome           | String   | ✅ |
