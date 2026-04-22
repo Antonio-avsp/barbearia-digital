@@ -12,7 +12,7 @@ Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, se
   - [🗄️ Entidades e Relacionamentos](#️-entidades-e-relacionamentos)
     - [Cliente](#cliente)
     - [Serviço](#serviço)
-    - [⭐ Barbeiro](#-barbeiro)
+    - [Barbeiro](#barbeiro)
     - [Agendamento](#agendamento)
   - [🔌 API REST — Endpoints](#-api-rest--endpoints)
     - [Clientes: `/api/clientes`](#clientes-apiclientes)
@@ -45,7 +45,7 @@ barbearia/
 │   │   └── servicoController.js
 │   ├── models/
 │   │   ├── Agendamento.js
-│   │   ├── Barbeiro.js       
+│   │   ├── Barbeiro.js      
 │   │   ├── Cliente.js
 │   │   └── Servico.js
 │   ├── routes/
@@ -60,7 +60,7 @@ barbearia/
 └── frontend/
     ├── css/
     │   └── style.css
-    ├── icons/          
+    ├── icons/           
     ├── js/
     │   ├── app.js
     │   ├── agendamentos.js
@@ -94,7 +94,8 @@ barbearia/
 | duracaoMinutos | Number  | ✅ |
 | ativo          | Boolean | ❌ (default true) |
 
-### ⭐ Barbeiro
+⭐
+### Barbeiro
 | Campo          | Tipo     | Obrigatório |
 |----------------|----------|-------------|
 | nome           | String   | ✅ |
@@ -293,3 +294,6 @@ Após o deploy, acesse o frontend pelo navegador e:
 | `routes/petRouts.js`       | Importava `diaryController` em vez de `petController` | Controller correto por entidade |
 | `server.js`                | `require('./routes/petRoutes')` após o `.listen()` | Todas as rotas registradas antes do listen |
 | Sem tratamento de erros    | Controllers sem try/catch                     | try/catch em todos os controllers |
+
+
+[def]: iro)
