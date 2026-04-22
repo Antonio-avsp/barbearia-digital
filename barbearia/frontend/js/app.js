@@ -1,5 +1,5 @@
 // ── CONFIG ──────────────────────────────────────────
-const API = 'http://localhost:3000/api';
+const API = 'https://barbearia-digital-x4i4.onrender.com';
 
 // ── TOAST ────────────────────────────────────────────
 function toast(msg, tipo = 'ok') {
