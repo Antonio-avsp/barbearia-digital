@@ -6,28 +6,30 @@ Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, se
 
 ## 📋 Índice
 
-- [Estrutura do Projeto](#️-estrutura-do-projeto)
-- [Entidades e Relacionamentos](#️-entidades-e-relacionamentos)
-  - [Cliente](#cliente)
-  - [Serviço](#serviço)
-  - [Barbeiro ⭐](#barbeiro--nova-entidade)
-  - [Agendamento](#agendamento)
-- [API REST — Endpoints](#-api-rest--endpoints)
-  - [Clientes](#clientes-apiclientes)
-  - [Serviços](#serviços-apiservicos)
-  - [Barbeiros](#barbeiros-apibarbeiros)
-  - [Agendamentos](#agendamentos-apiagendamentos)
-- [Como Rodar Localmente](#-como-rodar-localmente)
-  - [Pré-requisitos](#pré-requisitos)
-  - [Backend](#backend)
-  - [Frontend](#frontend)
-- [Deploy — Guia Completo](#️-deploy--guia-completo)
-  - [1. MongoDB Atlas](#1-banco-de-dados--mongodb-atlas-gratuito)
-  - [2. Backend — Render](#2-backend--render-gratuito)
-  - [3. Frontend — Vercel](#3-frontend--vercel-gratuito)
-  - [4. CORS em Produção](#4-cors-em-produção)
-- [PWA — Instalação](#-pwa--instalação)
-- [Bugs Corrigidos do Projeto Original](#-bugs-corrigidos-do-projeto-original-pet)
+- [💈 Barbearia Digital — Sistema de Gestão Fullstack](#-barbearia-digital--sistema-de-gestão-fullstack)
+  - [📋 Índice](#-índice)
+  - [🗂️ Estrutura do Projeto](#️-estrutura-do-projeto)
+  - [🗄️ Entidades e Relacionamentos](#️-entidades-e-relacionamentos)
+    - [Cliente](#cliente)
+    - [Serviço](#serviço)
+    - [⭐ Barbeiro](#-barbeiro)
+    - [Agendamento](#agendamento)
+  - [🔌 API REST — Endpoints](#-api-rest--endpoints)
+    - [Clientes: `/api/clientes`](#clientes-apiclientes)
+    - [Serviços: `/api/servicos`](#serviços-apiservicos)
+    - [Barbeiros: `/api/barbeiros`](#barbeiros-apibarbeiros)
+    - [Agendamentos: `/api/agendamentos`](#agendamentos-apiagendamentos)
+  - [🚀 Como Rodar Localmente](#-como-rodar-localmente)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [☁️ Deploy — Guia Completo](#️-deploy--guia-completo)
+    - [1. Banco de Dados — MongoDB Atlas (gratuito)](#1-banco-de-dados--mongodb-atlas-gratuito)
+    - [2. Backend — Render (gratuito)](#2-backend--render-gratuito)
+    - [3. Frontend — Vercel (gratuito)](#3-frontend--vercel-gratuito)
+    - [4. CORS em Produção](#4-cors-em-produção)
+  - [📱 PWA — Instalação](#-pwa--instalação)
+  - [🐛 Bugs Corrigidos do Projeto Original (pet)](#-bugs-corrigidos-do-projeto-original-pet)
 
 ---
 
@@ -43,7 +45,7 @@ barbearia/
 │   │   └── servicoController.js
 │   ├── models/
 │   │   ├── Agendamento.js
-│   │   ├── Barbeiro.js       ← Nova entidade obrigatória
+│   │   ├── Barbeiro.js       
 │   │   ├── Cliente.js
 │   │   └── Servico.js
 │   ├── routes/
@@ -58,7 +60,7 @@ barbearia/
 └── frontend/
     ├── css/
     │   └── style.css
-    ├── icons/           ← Adicionar icon-192.png e icon-512.png
+    ├── icons/          
     ├── js/
     │   ├── app.js
     │   ├── agendamentos.js
@@ -92,7 +94,7 @@ barbearia/
 | duracaoMinutos | Number  | ✅ |
 | ativo          | Boolean | ❌ (default true) |
 
-### Barbeiro ⭐ (Nova entidade)
+### ⭐ Barbeiro
 | Campo          | Tipo     | Obrigatório |
 |----------------|----------|-------------|
 | nome           | String   | ✅ |
