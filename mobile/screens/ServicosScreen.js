@@ -114,7 +114,14 @@ export default function ServicosScreen() {
   };
 
   const renderContent = () => {
-    if (loading) return <StatusView type="loading" />;
+    if (loading) {
+      return (
+        <StatusView
+          type="loading"
+          message={'Carregando serviços...\nO servidor gratuito pode levar até 1 minuto para acordar no primeiro acesso.'}
+        />
+      );
+    }
     if (error) return <StatusView type="error" message={error} onRetry={() => loadServicos()} />;
     if (!servicos.length) {
       return (

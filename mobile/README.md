@@ -35,7 +35,7 @@ Por padrão o app consome a API hospedada no Render:
 
 ```js
 // services/api.js
-const API_URL = 'https://barbearia-backend.onrender.com/api';
+const API_URL = 'https://barbearia-digital-x4i4.onrender.com/api';
 ```
 
 Para usar um backend local, suba o backend (veja o README em `barbearia/backend`) e troque a URL pelo IP da sua máquina na rede local (o `localhost` do celular não enxerga o computador):

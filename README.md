@@ -223,7 +223,7 @@ A aplicação utiliza a seguinte arquitetura de deploy:
 | Camada        | Serviço           | URL de exemplo                                  |
 |---------------|-------------------|-------------------------------------------------|
 | 🗄️ Banco      | MongoDB Atlas     | `cluster0.xxxxx.mongodb.net`                    |
-| ⚙️ Backend    | Render            | `https://barbearia-backend.onrender.com`        |
+| ⚙️ Backend    | Render            | `https://barbearia-digital-x4i4.onrender.com`        |
 | 🌐 Frontend   | Vercel            | `https://barbearia-digital.vercel.app`          |
 
 ---
@@ -255,7 +255,7 @@ A aplicação utiliza a seguinte arquitetura de deploy:
    PORT      = 3000
    ```
 5. Clique em **Create Web Service**
-6. Copie a URL gerada (ex: `https://barbearia-backend.onrender.com`)
+6. Copie a URL gerada (ex: `https://barbearia-digital-x4i4.onrender.com`)
 
 > ⚠️ No plano gratuito do Render, o serviço hiberna após 15 minutos de inatividade. A primeira requisição após o período de inatividade pode levar alguns segundos a mais para responder.
 
@@ -270,7 +270,7 @@ A aplicação utiliza a seguinte arquitetura de deploy:
 const API = 'http://localhost:3000/api';
 
 // Depois (produção):
-const API = 'https://barbearia-backend.onrender.com/api';
+const API = 'https://barbearia-digital-x4i4.onrender.com/api';
 ```
 
 **Passos para o deploy:**
