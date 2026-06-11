@@ -1,6 +1,12 @@
 # 💈 Barbearia Digital — Sistema de Gestão Fullstack
 
-Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, serviços, barbeiros e agendamentos.
+Aplicação fullstack para gerenciamento completo de barbearia: clientes, serviços, barbeiros e agendamentos.
+
+O projeto é composto por:
+
+- **`barbearia/backend`** — API REST em Node.js + Express + MongoDB, organizada em **routes, controllers e models**
+- **`mobile/`** — aplicativo **React Native com Expo** que consome a API e realiza o **CRUD completo de serviços** (cadastrar, listar, editar e excluir) → instruções em [`mobile/README.md`](mobile/README.md)
+- **`barbearia/frontend`** — frontend web PWA (HTML/CSS/JS)
 
 ---
 
@@ -36,6 +42,13 @@ Aplicação fullstack PWA para gerenciamento completo de barbearia: clientes, se
 ## 🗂️ Estrutura do Projeto
 
 ```
+mobile/                  # app React Native com Expo (CRUD de serviços)
+├── components/
+├── screens/
+├── services/
+├── styles/
+└── App.js
+
 barbearia/
 ├── backend/
 │   ├── controllers/
@@ -189,6 +202,17 @@ npx http-server . -p 8080
 ```
 
 > ⚠️ Altere a constante `API` em `frontend/js/app.js` para apontar para o backend hospedado em produção.
+
+### Mobile (React Native + Expo)
+
+```bash
+cd mobile
+npm install
+npm run start
+# escaneie o QR Code com o Expo Go ou pressione "a" para Android Emulator
+```
+
+> Instruções completas (incluindo como apontar para um backend local) em [`mobile/README.md`](mobile/README.md).
 
 ---
 
