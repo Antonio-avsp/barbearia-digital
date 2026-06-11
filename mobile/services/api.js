@@ -1,6 +1,6 @@
 // Para rodar com backend local, troque pela URL da sua máquina na rede,
 // ex.: 'http://192.168.0.10:3000/api' (localhost não funciona no Expo Go).
-const API_URL = 'https://barbearia-backend.onrender.com/api';
+const API_URL = 'https://barbearia-digital-x4i4.onrender.com/api';
 
 // Timeout alto para tolerar o cold start do Render gratuito (~50s)
 const TIMEOUT_MS = 70000;
